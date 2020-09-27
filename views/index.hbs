@@ -1,0 +1,150 @@
+<div class="fh5co-tab-wrap">
+	<ul class="fh5co-tab-menu">
+		<li class="active"><a href="#" data-tab="1"><span class="icon icon-glass"></span><span
+					class="menu-text">Profile</span></a></li>
+		<li><a href="#" data-tab="2"><span class="icon icon-graduation-cap"></span><span
+					class="menu-text">Education</span></a></li>
+		<li><a href="#" data-tab="3"><span class="icon icon-black-tie"></span><span
+					class="menu-text">Experience</span></a></li>
+		<li><a href="#" data-tab="4"><span class="icon icon-book"></span><span class="menu-text">Publication</span></a>
+		</li>
+		<li><a href="#" data-tab="5" data-pie="yes"><span class="icon icon-fighter-jet"></span><span
+					class="menu-text">Skills</span></a></li>
+	</ul>
+	<div class="fh5co-tab-content active" data-content="1">
+		<div class="fh5co-content-inner text-center">
+			<div class="row row-bottom-padded-sm">
+				<div class="col-md-12">
+					<figure>
+						<img src="images/wuttha.png">
+					</figure>
+					<h1>{{myData.name}}</h1>
+					<p style="text-align: justify;">{{myData.aboutme.description}} </p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 fh5co-counter">
+					<div class="fh5co-number fh5co-left">{{experience}}</div>
+					<div class="fh5co-text">
+						<h3 class="border-bottom">Years of experience in teaching at Software Engineering program</h3>
+						<p>It’s hard enough to find an error in your code when you’re looking for it; its even harder
+							when you’ve ASSUMED your code is ERROR-FREE. <br />
+							<i>- Steve McConnell -</i></p>
+					</div>
+				</div>
+			</div>
+			<ul class="fh5co-social">
+				<li><a href="mailto:{{myData.aboutme.email}}"><i class="icon-envelope"></i></a></li>
+				<li><a href="{{myData.aboutme.website}}"><i class="icon-chrome"></i></a></li>
+				<li><a href="tel:{{myData.aboutme.phone}}"><i class="icon-phone"></i></a></li>
+				<li><a href="{{myData.aboutme.linkedin}}"><i class="icon-linkedin"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="fh5co-tab-content" data-content="2">
+		<div class="fh5co-content-inner">
+			<div class="row">
+				<div class="col-md-12">
+					{{#each myData.education}}
+					<div class="fh5co-feature">
+						<div class="fh5co-icon">
+							<i class="icon-graduation-cap"></i>
+						</div>
+						<div class="fh5co-text">
+							<h2>{{this.duration}}</h2>
+							<p>{{this.degree}} <br />
+								{{this.university}}<br />
+								<span style="font-size: 14px;">{{this.description}}</span></p>
+						</div>
+					</div>
+					{{/each}}
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="fh5co-tab-content" data-content="3">
+		<div class="fh5co-content-inner">
+			<div class="row">
+				<div class="col-md-12">
+
+
+					{{#each myData.experience}}
+					<div class="fh5co-feature">
+						<div class="fh5co-icon">
+							<i class="icon-black-tie"></i>
+						</div>
+						<div class="fh5co-text">
+							<h2>{{this.title}} - ({{this.period}})</h2>
+							<h3>{{this.organization}} </h3>
+							<p style="font-size: 14px;">{{this.description}}</p>
+						</div>
+					</div>
+					{{/each}}
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="fh5co-tab-content" data-content="4">
+		<div class="fh5co-content-inner">
+			<div class="row">
+				<div class="col-md-12">
+
+
+					{{#each myData.publication}}
+					<div class="fh5co-feature">
+						<div class="fh5co-icon">
+							<i class="icon-book"></i>
+						</div>
+						<div class="fh5co-text">
+							<h2>{{this.author}} - ({{this.year}})</h2>
+							<h3><a href="{{this.link}}">{{this.title}}</a></h3>
+							<p style="font-size: 14px;">{{this.publisher}}</p>
+						</div>
+					</div>
+					{{/each}}
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="fh5co-tab-content" data-content="5">
+		<div class="fh5co-content-inner">
+			<div class="row">
+				<h2>Language</h2>
+				<div class="col-md-12">
+					{{#each myData.languages}}
+					<div class="progress-wrap">
+						<h3><span class="name-left">{{this.language}}</span><span class="value-right"> ({{this.level}})
+							</span></h3>
+						<div class="progress">
+							<div class="progress-bar progress-bar-{{this.order}} progress-bar-striped active"
+								role="progressbar" aria-valuenow="{{this.percent}}" aria-valuemin="0"
+								aria-valuemax="100" style="width:{{this.percent}}%">
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			
+			<div class="row">
+				<h2>Programming skills</h2>
+				<div class="col-md-12">
+					{{#each myData.skills}}
+					<div class="col-md-4 col-sm-6 col-xs-12 text-center">
+						<div class="chart" data-percent="{{this.percent}}">
+							<span><strong>{{this.skill}}</strong>{{this.percent}}%</span></div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
